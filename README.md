@@ -36,3 +36,13 @@ manipulated through numerical vectors. `Vector search` finds similar or relevant
 both query embeddings and stored document embeddings, based on a `measure of distance` between vectors. MongoDB Atlas
 Vector Search provides an efficient way to perform semantic similarity searches on data from various sources and in
 different formats, represented as vector embeddings.
+
+## RAG graphical schema
+
+<p align="center">
+  <img src="./imgs/rag_schema.png" width="800" />
+</p>
+
+## Credits
+
+- [RAG Atlas Vector Search Langchain OpenAI](https://www.mongodb.com/developer/products/atlas/rag-atlas-vector-search-langchain-openai/)
