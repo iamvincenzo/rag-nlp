@@ -1,0 +1,13 @@
+langchain
+langchain_community
+langchain_mongodb
+langchain_openai
+pymongo
+bs4
+openai
+tiktoken
+gradio
+requests
+lxml
+argparse
+unstructured
