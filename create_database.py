@@ -71,7 +71,7 @@ class DataStore(object):
             - List[Document]: A list of Document objects.
         """
         # initialize the DirectoryLoader
-        loader = DirectoryLoader(self.file_pths, glob="./*.txt", show_progress=True)
+        loader = DirectoryLoader(self.file_pths, glob="./*.*", show_progress=True)
         data = loader.load()
 
         return data
