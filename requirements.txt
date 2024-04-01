@@ -12,3 +12,4 @@ lxml
 argparse
 unstructured
 unstructured[docx]
+unstructured[pdf]
