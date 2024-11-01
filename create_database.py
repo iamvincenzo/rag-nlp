@@ -112,8 +112,9 @@ class DataStore(object):
         Returns:
             - MongoDBAtlasVectorSearch: MongoDBAtlasVectorSearch object.
         """
-        vector_store = MongoDBAtlasVectorSearch.from_documents(chunks,
-                                                               self.embeddings, collection=self.collection)
+        vector_store = MongoDBAtlasVectorSearch.from_documents(
+            chunks, self.embeddings, collection=self.collection
+        )
 
         return vector_store
 
