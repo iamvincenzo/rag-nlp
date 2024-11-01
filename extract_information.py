@@ -29,13 +29,13 @@ def query_data(query: str) -> tuple:
     # convert question to vector using OpenAI embeddings
     # perform Atlas Vector Search using Langchain's vectorStore similarity_search
     # returns MongoDB documents most similar to the query
-    docs = vector_store.similarity_search(query=query, K=1)
+    docs = vector_store.similarity_search(query=query, K=4)
 
     if not docs:
         return "No relevant documents found.", "No result generated from RAG."
 
-    as_output = docs[0].page_content
     # leveraging Atlas Vector Search paired with Langchain's QARetriever
+    as_output = " ".join([doc.page_content for doc in docs])
 
     # Define the LLM that we want to use -- note that this is the Language Generation Model and NOT an Embedding Model
     # if it's not specified (for example like in the code below),
