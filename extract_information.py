@@ -15,13 +15,13 @@ from key_param import MONGO_URI
 from key_param import OPENAI_API_KEY
 
 
-def query_data(query: gr.Textbox) -> tuple:
+def query_data(query: str) -> tuple:
     """
     Function that performs semantic similarity search using Atlas Vector Search and
     uses a retrieval-based augmentation to perform question-answering on the data.
 
     Args:
-        - query (gr.Textbox): A text query for semantic similarity search and question-answering.
+        - query (str): A text query for semantic similarity search and question-answering.
 
     Returns:
         - tuple: A tuple containing the output from Atlas Vector Search and the output generated using RAG Architecture.
@@ -29,7 +29,10 @@ def query_data(query: gr.Textbox) -> tuple:
     # convert question to vector using OpenAI embeddings
     # perform Atlas Vector Search using Langchain's vectorStore similarity_search
     # returns MongoDB documents most similar to the query
-    docs = vector_store.similarity_search(query, K=1)
+    docs = vector_store.similarity_search(query=query, K=1)
+
+    if not docs:
+        return "No relevant documents found.", "No result generated from RAG."
 
     as_output = docs[0].page_content
     # leveraging Atlas Vector Search paired with Langchain's QARetriever
